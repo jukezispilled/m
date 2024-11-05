@@ -107,8 +107,8 @@ function App() {
             <div className='flex justify-center items-center'>
               <div className=''>
                 <div className='h-auto w-[85dvw] py-10 relative'>
-                  <div className='absolute top-5 right-5'>
-                    <div className='flex justify-center space-x-2 text-xl'>
+                  <div className='absolute top-2 right-2 md:top-5 md:right-5'>
+                    <div className='flex justify-center space-x-2 text-lg'>
                       <a href='https://x.com/' className='underline'>
                         Twitter
                       </a>
@@ -119,7 +119,7 @@ function App() {
                   </div>
                   <div className='flex justify-center'>
                     <div className='mb-5'>
-                      <img src="header.gif" className=''></img>
+                      <img src="header.gif" className='scale-90 md:scale-100'></img>
                     </div>
                   </div>
                   <RepeatedMarquee />
@@ -127,13 +127,13 @@ function App() {
                   <div className='flex justify-center my-[10px]'>
                     <Window>
                       <video
-                        src="/trump.mov"
+                        src="/trump.mp4"
                         autoPlay
                         loop
                         muted
                         controls
                         playsInline
-                        style={{ width: '100%', height: 'auto' }}
+                        className='w-[200px] md:w-[500px]'
                       />
                     </Window>
                   </div>
