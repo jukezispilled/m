@@ -109,10 +109,10 @@ function App() {
                 <div className='h-auto w-[85dvw] py-10 relative'>
                   <div className='absolute top-2 right-2 md:top-5 md:right-5'>
                     <div className='flex justify-center space-x-2 text-lg'>
-                      <a href='https://x.com/' className='underline'>
+                      <a href='https://x.com/DJT500solana' className='underline'>
                         Twitter
                       </a>
-                      <a href='https://t.me/' className='underline'>
+                      <a href='https://t.me/DJT500Portal' className='underline'>
                         Telegram
                       </a>
                     </div>
