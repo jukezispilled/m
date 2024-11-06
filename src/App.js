@@ -100,7 +100,7 @@ function App() {
               >
                 {copied ? 'Copied!' : 'Copy'}
               </button>
-              <span className='p-1 text-[9px] md:text-base'>uploading...</span>
+              <span className='p-1 text-[9px] md:text-base'>updating</span>
             </Window>
           </div>
           <Window>
