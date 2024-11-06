@@ -100,7 +100,7 @@ function App() {
               >
                 {copied ? 'Copied!' : 'Copy'}
               </button>
-              <span className='p-1 text-[9px] md:text-base'>updating</span>
+              <span className='p-1 text-[9px] md:text-base'>BtTQtFdArXgYgwiHcLZtXfX2zTfB87qs4y2SQMckpump</span>
             </Window>
           </div>
           <Window>
