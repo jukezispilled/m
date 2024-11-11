@@ -11,20 +11,20 @@ const reviews = [
   {
     name: "Ansem",
     username: "@blknoiz06",
-    body: "DJT500 is millions coded. will start shilling on X shortly",
+    body: "invETF is millions coded. will start shilling on X shortly",
     img: "ansem.png",
   },
   {
-    name: "Bill Ackman",
-    username: "@BillAckman",
-    body: "fund is doubling down on DJT500. data points up and to the north",
-    img: "bill.png",
+    name: "Ken Griffin",
+    username: "@KenGriffin",
+    body: "fund is doubling down on invETF. data points up and to the north",
+    img: "ken.png",
   },
   {
-    name: "Yenni",
-    username: "@Yennii56",
-    body: "ok finally found a cook. this is about to rip. who wants ca?",
-    img: "yenni.png",
+    name: "Mitch",
+    username: "@idrawline",
+    body: "feeling some retardio vibes from this. aping 100 sol see you at 10m's",
+    img: "mitch.jpg",
   },
   {
     name: "Nancy Pelosi",
@@ -35,13 +35,13 @@ const reviews = [
   {
     name: "Wolf Of Crypto",
     username: "@W0LF0FCRYPT0",
-    body: "here to shill the f*ck out of this. only up. DJT500 is the next 100x",
+    body: "here to shill the f*ck out of this. only up. invETF is the next 100x",
     img: "wolf.png",
   },
   {
     name: "Elon Musk",
     username: "@elonmusk",
-    body: "DJT500 might reach mars before me. if trump in, i'm in",
+    body: "invETF might reach mars before me. inverse Cramer is max alpha",
     img: "elon.png",
   },
 ];
