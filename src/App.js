@@ -74,7 +74,7 @@ function App() {
     const contractAddress = 'uploading...';
     navigator.clipboard.writeText(contractAddress).then(() => {
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000); // Reset the copied state after 2 seconds
+      setTimeout(() => setCopied(false), 2000);
     });
   };
 
@@ -85,7 +85,7 @@ function App() {
           display: 'flex',
           justifyContent: 'center',
           padding: '20px',
-          backgroundImage: 'url(/d.gif)',
+          backgroundImage: 'url(/c.gif)',
           backgroundRepeat: 'repeat',
           backgroundSize: 'auto',
           overflow: 'hidden'
@@ -100,46 +100,41 @@ function App() {
               >
                 {copied ? 'Copied!' : 'Copy'}
               </button>
-              <span className='p-1 text-[9px] md:text-base'>BtTQtFdArXgYgwiHcLZtXfX2zTfB87qs4y2SQMckpump</span>
+              <span className='p-1 text-[9px] md:text-base'>updating...</span>
             </Window>
           </div>
           <Window>
-            <div className='flex justify-center items-center'>
+            <div 
+              className='flex justify-center items-center'
+              style={{
+                position: 'relative',
+                backgroundImage: 'url(/money.gif)',
+                backgroundRepeat: 'repeat',
+                backgroundSize: 'auto'
+              }}
+            >
               <div className=''>
                 <div className='h-auto w-[85dvw] py-10 relative'>
                   <div className='absolute top-2 right-2 md:top-5 md:right-5'>
                     <div className='flex justify-center space-x-2 text-lg'>
-                      <a href='https://x.com/DJT500solana' className='underline'>
+                      <a href='https://x.com/' className='underline'>
                         Twitter
                       </a>
-                      <a href='https://t.me/DJT500Portal' className='underline'>
+                      <a href='https://t.me/' className='underline'>
                         Telegram
                       </a>
                     </div>
                   </div>
                   <div className='flex justify-center'>
                     <div className='mb-5'>
-                      <img src="header.gif" className='scale-90 md:scale-100'></img>
+                      <img src="header.png" className='w-[300px] md:w-[600px]'></img>
                     </div>
+                  </div>
+                  <div className='flex justify-center my-10'>
+                    <TradingSimulator initialPrice={100}/>
                   </div>
                   <RepeatedMarquee />
                   <RepeatedMarquee direction={'right'} />
-                  <div className='flex justify-center my-[10px]'>
-                    <Window>
-                      <video
-                        src="/trump.mp4"
-                        autoPlay
-                        loop
-                        muted
-                        controls
-                        playsInline
-                        className='w-[200px] md:w-[500px]'
-                      />
-                    </Window>
-                  </div>
-                  <div className='flex justify-center mt-10'>
-                    <TradingSimulator initialPrice={100}/>
-                  </div>
                   <div className="relative flex h-min pt-[20%] md:pt-[7.5%] w-full flex-col items-center justify-center overflow-hidden">
                     <div className="w-full relative">
                       <Marquee pauseOnHover={true} speed={80}>

@@ -86,7 +86,7 @@ const TradingSimulator = ({ title, imageSrc, initialPrice }) => {
           });
           return newPrice;
         });
-      }, 300);
+      }, 100);
   
       return () => clearInterval(interval);
     }, [priceHistory]);
@@ -112,18 +112,45 @@ const TradingSimulator = ({ title, imageSrc, initialPrice }) => {
             return newPrice; // Return new price (keep it as a number)
         });
     };    
+
+    const handleSell = () => {
+      setPrice((prev) => {
+          const newPrice = prev * .1; // Increase price by 10%
+          // Update the price history with the new price
+          const lastEntry = priceHistory[priceHistory.length - 1];
+          const newTime = lastEntry.time + 60 + Math.random() * 0.001; // Unique timestamp with a slight random increment
+          const updatedEntry = {
+              time: newTime,
+              open: lastEntry.open,
+              high: Math.max(lastEntry.high, newPrice),
+              low: Math.min(lastEntry.low, newPrice),
+              close: newPrice,
+          };
+          // Update the last entry in the priceHistory array
+          setPriceHistory((prevHistory) => [
+              ...prevHistory.slice(0, prevHistory.length - 1),
+              updatedEntry,
+          ]);
+          return newPrice; // Return new price (keep it as a number)
+      });
+    }; 
   
     return (
       <ThemeProvider theme={original}>
         <Window className="w-[90%] md:w-full max-w-4xl p-4">
-            <WindowContent className="bg-red-600 p-4 flex flex-col items-center">
+            <WindowContent className="bg-green-600 p-4 flex flex-col items-center">
                 <div className="flex items-center">
-                    <div className="flex flex-col space-y-2">
-                    <Button 
-                        onClick={handleBuy} 
-                    >
-                        <span className=''>Simulate Trump Win</span>
-                    </Button>
+                    <div className="flex justify-center space-x-2">
+                      <Button 
+                          onClick={handleSell} 
+                      >
+                          <span className=''>Cramer Shill</span>
+                      </Button>
+                      <Button 
+                          onClick={handleBuy} 
+                      >
+                          <span className=''>Cramer FUD</span>
+                      </Button>
                     </div>
                 </div>
                 <div ref={chartContainerRef} className="w-[90%] md:w-[90%] h-[225px] md:h-[400px] mt-4"></div>
