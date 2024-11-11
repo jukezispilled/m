@@ -1,7 +1,7 @@
 import { Window, Button } from 'react95';
 import original from 'react95/dist/themes/original';
 import { ThemeProvider } from 'styled-components';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const initialResponse = "Well well well, look who came for some trading advice!";
 
@@ -26,12 +26,23 @@ const ChatbotButton = () => {
   const [chatbotAvatar] = useState("jim.png");
   const [isTyping, setIsTyping] = useState(false);
   const [availableResponses, setAvailableResponses] = useState([...responses]);
+  
+  const chatContainerRef = useRef(null);
 
   useEffect(() => {
     if (isOpen) {
       typeMessage(initialResponse, true);
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTo({
+        top: chatContainerRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
+  }, [messages]);
 
   const getRandomResponse = () => {
     if (availableResponses.length === 0) {
@@ -53,7 +64,7 @@ const ChatbotButton = () => {
     setIsTyping(true);
     
     for (let i = 0; i <= text.length; i++) {
-      await new Promise(resolve => setTimeout(resolve, 50));
+      await new Promise(resolve => setTimeout(resolve, 20));
       setMessages(prev => {
         const newMessages = [...prev];
         const lastMessage = newMessages[newMessages.length - 1];
@@ -101,23 +112,26 @@ const ChatbotButton = () => {
             }}
             onClick={() => setIsOpen(!isOpen)}
         >
-            <span className='text-xl md:text-3xl p-1'>Ask Jim</span>
+            <span className='text-xl md:text-3xl font-semibold'>Ask Jim</span>
         </Button>
 
         {isOpen && (
             <Window>
                 <div className="fixed bottom-16 right-4 w-80 bg-white border-2 shadow-lg p-4 z-20 mb-2">
                 <div className="flex items-center gap-3 mb-4">
-                    <img src={chatbotAvatar} alt="CryptoBot" className="w-10 h-10 rounded-full" />
+                    <img src={chatbotAvatar} alt="Ask Jim" className="w-10 h-10 rounded-full" />
                     <div className="font-bold">{chatbotName}</div>
                 </div>
-                <div className="h-64 overflow-y-auto">
+                <div
+                    ref={chatContainerRef}
+                    style={{ height: "16rem", overflowY: "auto" }}
+                >
                     {messages.map((msg, index) => (
                     <div
                         key={index}
-                        className={`mb-2 ${msg.sender === "bot" ? "text-gray-700" : "text-gray-700"}`}
+                        className={`mb-2`}
                     >
-                        <div className={msg.sender === "bot" ? "text-gray-700 font-semibold" : "text-gray-700 font-semibold"}>
+                        <div className="font-semibold">
                         {msg.sender === "bot" ? "Jim" : "You"}:
                         </div>
                         <div>
@@ -138,7 +152,11 @@ const ChatbotButton = () => {
                     disabled={isTyping}
                     />
                     <Button
-                    className={`p-2 ${isTyping ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    style={{
+                        padding: "0.5rem",
+                        opacity: isTyping ? "0.5" : "1",
+                        cursor: isTyping ? "not-allowed" : "pointer",
+                    }}
                     onClick={() => sendMessage(input)}
                     disabled={isTyping}
                     >
