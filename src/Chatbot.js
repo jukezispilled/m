@@ -3,12 +3,19 @@ import original from 'react95/dist/themes/original';
 import { ThemeProvider } from 'styled-components';
 import React, { useState, useEffect } from 'react';
 
+const initialResponse = "Well well well, look who came for some trading advice!";
+
 const responses = [
-  "How can I help you today?",
-  "Do you have any questions about invETF?",
-  "Feel free to ask me anything!",
-  "I'm here to assist you with invETF queries.",
-  "Need help with anything specific?",
+    "SELL SELL SELL! ...wait, no, BUY BUY BUY! Actually, let me check my notes...",
+    "Listen, I've been wrong about every major market move since 1987, so whatever you're thinking, do the opposite!",
+    "BOOYAH! That's exactly what I told my hedge fund buddies right before they lost everything!",
+    "Bear Stearns is fine! ...oh wait, wrong decade. But trust me, I'm absolutely certain about being uncertain!",
+    "My lightning round analysis says: inverse whatever I just said and multiply by two!",
+    "*smashes sound effect button* When I'm this confident, it's usually a contrarian indicator!",
+    "Let me check what my inverse ETF is doing... ah yes, making money whenever I talk!",
+    "Remember folks: my track record is so bad, they made an ETF betting against me. And it's WORKING!",
+    "This reminds me of the time I recommended buying Netflix at $686... obviously do the opposite of that!",
+    "As I always say: the more confident I sound, the faster you should run in the other direction!"
 ];
 
 const ChatbotButton = () => {
@@ -18,12 +25,23 @@ const ChatbotButton = () => {
   const [chatbotName] = useState("Jim Cramer");
   const [chatbotAvatar] = useState("jim.png");
   const [isTyping, setIsTyping] = useState(false);
+  const [availableResponses, setAvailableResponses] = useState([...responses]);
 
   useEffect(() => {
     if (isOpen) {
-      typeMessage("Hello! I'm CryptoBot. How can I assist you today?", true);
+      typeMessage(initialResponse, true);
     }
   }, [isOpen]);
+
+  const getRandomResponse = () => {
+    if (availableResponses.length === 0) {
+      setAvailableResponses([...responses]);
+    }
+    const randomIndex = Math.floor(Math.random() * availableResponses.length);
+    const response = availableResponses[randomIndex];
+    setAvailableResponses(prev => prev.filter((_, index) => index !== randomIndex));
+    return response;
+  };
 
   const typeMessage = async (text, isInitial = false) => {
     if (isInitial) {
@@ -64,7 +82,7 @@ const ChatbotButton = () => {
     setMessages(prev => [...prev, { text: message, sender: "user" }]);
     setInput('');
     
-    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+    const randomResponse = getRandomResponse();
     await typeMessage(randomResponse);
   };
 
@@ -112,7 +130,7 @@ const ChatbotButton = () => {
                 <div className="flex items-center gap-2 mt-3">
                     <input
                     type="text"
-                    className="flex-1 p-1 border"
+                    className="flex-1 p-1 border outline-none"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && sendMessage(input)}

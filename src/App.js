@@ -47,14 +47,6 @@ const reviews = [
   },
 ];
 
-const responses = [
-  "How can I help you today?",
-  "Do you have any questions about invETF?",
-  "Feel free to ask me anything!",
-  "I'm here to assist you with invETF queries.",
-  "Need help with anything specific?",
-];
-
 const ReviewCard = ({ img, name, username, body }) => {
   return (
     <figure
