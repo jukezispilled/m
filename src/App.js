@@ -1,9 +1,10 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import TradingSimulator from './Trade';
 import { Window } from 'react95';
 import original from 'react95/dist/themes/original';
 import RepeatedMarquee from './rmarquee';
+import ChatbotButton from './Chatbot';
 import Marquee from 'react-fast-marquee';
 import { cn } from './lib/utils';
 
@@ -46,6 +47,14 @@ const reviews = [
   },
 ];
 
+const responses = [
+  "How can I help you today?",
+  "Do you have any questions about invETF?",
+  "Feel free to ask me anything!",
+  "I'm here to assist you with invETF queries.",
+  "Need help with anything specific?",
+];
+
 const ReviewCard = ({ img, name, username, body }) => {
   return (
     <figure
@@ -68,16 +77,6 @@ const ReviewCard = ({ img, name, username, body }) => {
 };
 
 function App() {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = () => {
-    const contractAddress = 'uploading...';
-    navigator.clipboard.writeText(contractAddress).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
-
   return (
     <ThemeProvider theme={original}>
       <div
@@ -94,17 +93,14 @@ function App() {
         <div>
           <div className='flex justify-center mb-4'>
             <Window>
-              <button
-                onClick={handleCopy}
-                className='p-1 text-xs md:text-base m-1 bg-zinc-400'
-              >
-                {copied ? 'Copied!' : 'Copy'}
+              <button className='p-1 text-xs md:text-base m-1 bg-zinc-400'>
+                Copy
               </button>
               <span className='p-1 text-[9px] md:text-base'>updating...</span>
             </Window>
           </div>
           <Window>
-            <div 
+            <div
               className='flex justify-center items-center'
               style={{
                 position: 'relative',
@@ -117,10 +113,10 @@ function App() {
                 <div className='h-auto w-[85dvw] py-10 relative'>
                   <div className='absolute top-2 right-2 md:top-5 md:right-5'>
                     <div className='flex justify-center space-x-2 text-lg'>
-                      <a href='https://x.com/' className='underline'>
+                      <a href='https://x.com/invcrameretf' className='underline'>
                         Twitter
                       </a>
-                      <a href='https://t.me/' className='underline'>
+                      <a href='https://t.me/invcramerportal' className='underline'>
                         Telegram
                       </a>
                     </div>
@@ -131,7 +127,7 @@ function App() {
                     </div>
                   </div>
                   <div className='flex justify-center my-10'>
-                    <TradingSimulator initialPrice={100}/>
+                    <TradingSimulator initialPrice={100} />
                   </div>
                   <RepeatedMarquee />
                   <RepeatedMarquee direction={'right'} />
@@ -152,6 +148,7 @@ function App() {
           </Window>
         </div>
       </div>
+      <ChatbotButton />
     </ThemeProvider>
   );
 }
