@@ -88,7 +88,7 @@ function App() {
               <button className='p-1 text-xs md:text-base m-1 bg-zinc-400'>
                 Copy
               </button>
-              <span className='p-1 text-[9px] md:text-base'>updating...</span>
+              <span className='p-1 text-[9px] md:text-base'>7Mr3sWzYGoh9vVLTsPxGmkx6RJJcvPCCGH69UTUmpump</span>
             </Window>
           </div>
           <Window>
