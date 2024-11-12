@@ -103,13 +103,6 @@ function App() {
             >
               <div className=''>
                 <div className='h-auto w-[85dvw] py-10 relative'>
-                  <div className='absolute top-2 right-2 md:top-5 md:right-5'>
-                    <div className='flex justify-center space-x-2 text-lg'>
-                      <a href='https://x.com/invcrameretf' className='underline'>
-                        Twitter
-                      </a>
-                    </div>
-                  </div>
                   <div className='flex justify-center'>
                     <div className='mb-5'>
                       <img src="header.png" className='w-[300px] md:w-[600px]'></img>
