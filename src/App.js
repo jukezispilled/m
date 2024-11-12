@@ -108,9 +108,6 @@ function App() {
                       <a href='https://x.com/invcrameretf' className='underline'>
                         Twitter
                       </a>
-                      <a href='https://t.me/invcramerportal' className='underline'>
-                        Telegram
-                      </a>
                     </div>
                   </div>
                   <div className='flex justify-center'>
