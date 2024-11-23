@@ -100,6 +100,14 @@ function App() {
                 backgroundSize: '50px', // Changed from 'auto' to '50px' for smaller, more frequent repetition
               }}
             >
+              <div className="flex justify-center items-center space-x-2 absolute top-4 right-4 font-semibold">
+                <a href="https://x.com/millionsmustbuy">
+                  <span className='underline text-xl text-[#2EFA4F]'>Twitter</span>
+                </a>
+                <a href="https://t.me/millionsmustportal">
+                  <span className='underline text-xl text-[#2EFA4F]'>Telegram</span>
+                </a>
+              </div>
               <div className=''>
                 <div className='h-auto w-[85dvw] py-10 relative'>
                   <div className='flex justify-center'>
