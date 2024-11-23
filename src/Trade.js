@@ -66,10 +66,10 @@ const TradingSimulator = ({ title, imageSrc, initialPrice }) => {
     useEffect(() => {
       const interval = setInterval(() => {
         setPrice(prevPrice => {
-          const change = (Math.random() - 0.5) * 2; // Random price change between -1 and 1
-          const newPrice = Math.max(0, prevPrice + change); // Ensure price doesn't go below 0
+          const change = (Math.random() - 0.5) * 2;
+          const newPrice = Math.max(0, prevPrice + change);
           const lastEntry = priceHistory[priceHistory.length - 1];
-          const newTime = lastEntry.time + 60; // New entry every 60 seconds
+          const newTime = lastEntry.time + 60;
           const newEntry = {
             time: newTime,
             open: lastEntry.close,
@@ -93,10 +93,9 @@ const TradingSimulator = ({ title, imageSrc, initialPrice }) => {
   
     const handleBuy = () => {
         setPrice((prev) => {
-            const newPrice = prev * 10; // Increase price by 10%
-            // Update the price history with the new price
+            const newPrice = prev * 10;
             const lastEntry = priceHistory[priceHistory.length - 1];
-            const newTime = lastEntry.time + 60 + Math.random() * 0.001; // Unique timestamp with a slight random increment
+            const newTime = lastEntry.time + 60 + Math.random() * 0.001;
             const updatedEntry = {
                 time: newTime,
                 open: lastEntry.open,
@@ -104,21 +103,19 @@ const TradingSimulator = ({ title, imageSrc, initialPrice }) => {
                 low: Math.min(lastEntry.low, newPrice),
                 close: newPrice,
             };
-            // Update the last entry in the priceHistory array
             setPriceHistory((prevHistory) => [
                 ...prevHistory.slice(0, prevHistory.length - 1),
                 updatedEntry,
             ]);
-            return newPrice; // Return new price (keep it as a number)
+            return newPrice;
         });
     };    
 
     const handleSell = () => {
       setPrice((prev) => {
-          const newPrice = prev * .1; // Increase price by 10%
-          // Update the price history with the new price
+          const newPrice = prev * .1;
           const lastEntry = priceHistory[priceHistory.length - 1];
-          const newTime = lastEntry.time + 60 + Math.random() * 0.001; // Unique timestamp with a slight random increment
+          const newTime = lastEntry.time + 60 + Math.random() * 0.001;
           const updatedEntry = {
               time: newTime,
               open: lastEntry.open,
@@ -126,34 +123,34 @@ const TradingSimulator = ({ title, imageSrc, initialPrice }) => {
               low: Math.min(lastEntry.low, newPrice),
               close: newPrice,
           };
-          // Update the last entry in the priceHistory array
           setPriceHistory((prevHistory) => [
               ...prevHistory.slice(0, prevHistory.length - 1),
               updatedEntry,
           ]);
-          return newPrice; // Return new price (keep it as a number)
+          return newPrice;
       });
     }; 
   
     return (
       <ThemeProvider theme={original}>
         <Window className="w-[90%] md:w-full max-w-4xl p-4">
-            <WindowContent className="bg-green-600 p-4 flex flex-col items-center">
+            <WindowContent className="p-4 flex flex-col items-center" style={{
+                background: 'url(/c.gif) repeat',
+                backgroundSize: '50px 50px'
+            }}>
                 <div className="flex items-center">
                     <div className="flex justify-center space-x-2">
-                      <Button 
-                          onClick={handleSell} 
-                      >
-                          <span className=''>Cramer Shill</span>
+                      <Button onClick={handleSell}>
+                          <span>Cramer Shill</span>
                       </Button>
-                      <Button 
-                          onClick={handleBuy} 
-                      >
-                          <span className=''>Cramer FUD</span>
+                      <Button onClick={handleBuy}>
+                          <span>Cramer FUD</span>
                       </Button>
                     </div>
                 </div>
-                <div ref={chartContainerRef} className="w-[90%] md:w-[90%] h-[225px] md:h-[400px] mt-4"></div>
+                <div className="bg-white rounded-lg p-2 mt-4" style={{ width: '90%' }}>
+                    <div ref={chartContainerRef} className="w-full h-[225px] md:h-[400px]"></div>
+                </div>
             </WindowContent>
         </Window>
       </ThemeProvider>
