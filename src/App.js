@@ -4,7 +4,6 @@ import TradingSimulator from './Trade';
 import { Window } from 'react95';
 import original from 'react95/dist/themes/original';
 import RepeatedMarquee from './rmarquee';
-import ChatbotButton from './Chatbot';
 import Marquee from 'react-fast-marquee';
 import { cn } from './lib/utils';
 
@@ -12,13 +11,13 @@ const reviews = [
   {
     name: "Ansem",
     username: "@blknoiz06",
-    body: "iCramer is millions coded. will start shilling on X shortly",
+    body: "MILLIONS is millions coded. will start shilling on X shortly",
     img: "ansem.png",
   },
   {
     name: "Ken Griffin",
     username: "@KenGriffin",
-    body: "fund is doubling down on iCramer. data points up and to the north",
+    body: "fund is doubling down on MILLIONS. data points up and to the north",
     img: "ken.png",
   },
   {
@@ -36,13 +35,13 @@ const reviews = [
   {
     name: "Wolf Of Crypto",
     username: "@W0LF0FCRYPT0",
-    body: "here to shill the f*ck out of this. only up. iCramer is the next 100x",
+    body: "here to shill the f*ck out of this. only up. MILLIONS is the next 100x",
     img: "wolf.png",
   },
   {
     name: "Elon Musk",
     username: "@elonmusk",
-    body: "iCramer might reach mars before me. inverse Cramer is max alpha",
+    body: "MILLIONS might reach mars before me. inverse Cramer is max alpha",
     img: "elon.png",
   },
 ];
@@ -76,7 +75,7 @@ function App() {
           display: 'flex',
           justifyContent: 'center',
           padding: '20px',
-          backgroundImage: 'url(/c.gif)',
+          backgroundImage: 'url(/up.gif)',
           backgroundRepeat: 'repeat',
           backgroundSize: 'auto',
           overflow: 'hidden'
@@ -88,24 +87,24 @@ function App() {
               <button className='p-1 text-xs md:text-base m-1 bg-zinc-400'>
                 Copy
               </button>
-              <span className='p-1 text-[9px] md:text-base'>9iUfhDrmmqPfxLRBS6DgbAWL119FN63SgJAuzoGipump</span>
+              <span className='p-1 text-[9px] md:text-base'>uploading...</span>
             </Window>
           </div>
-          <Window>
+          <Window style={{ backgroundColor: 'black' }}>
             <div
               className='flex justify-center items-center'
               style={{
                 position: 'relative',
                 backgroundImage: 'url(/money.gif)',
                 backgroundRepeat: 'repeat',
-                backgroundSize: 'auto'
+                backgroundSize: '50px', // Changed from 'auto' to '50px' for smaller, more frequent repetition
               }}
             >
               <div className=''>
                 <div className='h-auto w-[85dvw] py-10 relative'>
                   <div className='flex justify-center'>
                     <div className='mb-5'>
-                      <img src="header.png" className='w-[300px] md:w-[600px]'></img>
+                      <img src="head.gif" className='w-[300px] md:w-[600px]'></img>
                     </div>
                   </div>
                   <div className='flex justify-center my-10'>
@@ -130,7 +129,6 @@ function App() {
           </Window>
         </div>
       </div>
-      <ChatbotButton />
     </ThemeProvider>
   );
 }

@@ -135,16 +135,13 @@ const TradingSimulator = ({ title, imageSrc, initialPrice }) => {
       <ThemeProvider theme={original}>
         <Window className="w-[90%] md:w-full max-w-4xl p-4">
             <WindowContent className="p-4 flex flex-col items-center" style={{
-                background: 'url(/c.gif) repeat',
+                background: 'url(/up.gif) repeat',
                 backgroundSize: '50px 50px'
             }}>
                 <div className="flex items-center">
                     <div className="flex justify-center space-x-2">
-                      <Button onClick={handleSell}>
-                          <span>Cramer Shill</span>
-                      </Button>
                       <Button onClick={handleBuy}>
-                          <span>Cramer FUD</span>
+                          <span className='text-3xl p-1 font-bold'>BUY</span>
                       </Button>
                     </div>
                 </div>
